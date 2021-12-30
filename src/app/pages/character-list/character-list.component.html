@@ -1,5 +1,8 @@
 <div class="row mt-2">
-    <app-input-search></app-input-search>
+    <app-input-search (nameFilter)="filterCharacters($event)"></app-input-search>
+    <p class="mt-2  ">
+        <b> Paginas:</b> {{resultRequest?.info?.pages}} <b>Total: </b> {{resultRequest?.info?.count}}
+    </p>
     <ng-container *ngFor="let character of resultRequest?.results">
         <div class="col-md-3 mt-2">
             <app-card [character]="character">

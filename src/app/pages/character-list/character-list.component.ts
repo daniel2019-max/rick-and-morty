@@ -22,14 +22,24 @@ export class CharacterListComponent implements OnInit {
             .subscribe(
                 {
                     next: (res) => {
-                        console.log(res)
                         this.resultRequest = res
                     },
                     error: (err) => {
-                        // this.handleError.bind(this)
                         console.log(err)
                     }
                 }
             )
+    }
+
+    filterCharacters(name: string) {
+        this.charactersService.getCharactersFilter(name).subscribe({
+            next: (res) => {
+                this.resultRequest = res
+            },
+            error: (err) => {
+                console.log(err)
+            }
+        })
+
     }
 }

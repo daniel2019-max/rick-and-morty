@@ -8,13 +8,21 @@ import {Observable} from "rxjs";
     providedIn: 'root'
 })
 export class CharactersService {
-    baseUrlAPI = environment.baseUrlAPI
+    baseUrlAPI = environment.baseUrlAPI + '/character'
 
 
     constructor(private http: HttpClient) {
     }
 
     getAllCharacters(): Observable<ResultRequestInterface> {
-        return this.http.get<ResultRequestInterface>(`${this.baseUrlAPI}/` + 'character')
+        return this.http.get<ResultRequestInterface>(`${this.baseUrlAPI}`)
+    }
+
+    getCharactersFilter(name: string) {
+        return this.http.get<ResultRequestInterface>(`${this.baseUrlAPI}`, {
+            params: {
+                'name': name
+            }
+        })
     }
 }
