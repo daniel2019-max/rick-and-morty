@@ -1,0 +1,23 @@
+<div class="card">
+    <img [src]="character.image" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">
+            {{character.name}}
+        </h5>
+        <p class="card-text">
+            {{character.gender}}
+        </p>
+        <!--        <a href="#"-->
+        <!--           class="btn btn-primary">-->
+        <!--            Go somewhere-->
+        <!--        </a>-->
+        <button type="button"
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+                [title]="'ver mas de ' + character.name"
+                class="btn btn-outline-success">
+            <!--            <i class=""></i>-->
+            Ver mas
+        </button>
+    </div>
+</div>
