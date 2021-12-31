@@ -7,6 +7,7 @@ import {CardComponent} from './components/card/card.component';
 import {CharacterListComponent} from './pages/character-list/character-list.component';
 import {HttpClientModule} from "@angular/common/http";
 import {SharedModule} from "./shared/shared.module";
+import {InfiniteScrollModule} from "ngx-infinite-scroll";
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import {SharedModule} from "./shared/shared.module";
     imports: [
         BrowserModule,
         HttpClientModule,
-        SharedModule
+        SharedModule,
+        InfiniteScrollModule
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -18,11 +18,8 @@ export class CharactersService {
         return this.http.get<ResultRequestInterface>(`${this.baseUrlAPI}`)
     }
 
-    getCharactersFilter(name: string) {
-        return this.http.get<ResultRequestInterface>(`${this.baseUrlAPI}`, {
-            params: {
-                'name': name
-            }
-        })
+    getCharactersFilter(name: string = '', page: number = 1) {
+        const url = `${this.baseUrlAPI}/?name=${name}&page=${page}`
+        return this.http.get<ResultRequestInterface>(url)
     }
 }

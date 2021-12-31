@@ -7,6 +7,7 @@ import {CharacterInterface} from "../../models/character.interface";
     styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
+    isHover = false
 
     _character: CharacterInterface;
 
@@ -18,11 +19,14 @@ export class CardComponent implements OnInit {
         this._character = value;
     }
 
-
     constructor() {
     }
 
     ngOnInit(): void {
+    }
+
+    showCharacter() {
+        alert(this.character.name)
     }
 
 }

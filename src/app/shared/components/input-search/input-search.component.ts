@@ -17,12 +17,9 @@ export class InputSearchComponent implements OnInit {
 
     ngOnInit(): void {
         this.nameSearchFC.valueChanges.pipe(
-            debounceTime(400),
-            distinctUntilChanged()
+            debounceTime(300)
         ).subscribe(value => {
-            if (value) {
-                this.nameFilter.emit(value)
-            }
+            this.nameFilter.emit(value)
         });
     }
 

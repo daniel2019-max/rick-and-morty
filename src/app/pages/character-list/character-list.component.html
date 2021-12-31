@@ -1,12 +1,24 @@
-<div class="row mt-2">
-    <app-input-search (nameFilter)="filterCharacters($event)"></app-input-search>
-    <p class="mt-2  ">
-        <b> Paginas:</b> {{resultRequest?.info?.pages}} <b>Total: </b> {{resultRequest?.info?.count}}
+<div class="row mt-2" infinite-scroll (scrolled)="onScrollDow()">
+    <app-input-search class="mb-2" (nameFilter)="filterCharacters($event)">
+    </app-input-search>
+    <p class="mb-2">
+        <b>Total: </b> {{infoApiResult?.count}}
     </p>
-    <ng-container *ngFor="let character of resultRequest?.results">
-        <div class="col-md-3 mt-2">
+    <ng-container *ngFor="let character of characters">
+        <div class="col-md-3 mb-2">
             <app-card [character]="character">
             </app-card>
         </div>
     </ng-container>
 </div>
+
+<button type="button"
+        [ngClass]="'no-hidden'"
+        *ngIf="showButton"
+        class="btn btn-dark rounded-circle"
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        title="Subir"
+        (click)="onScrollTop()">
+    <i class="bi bi-arrow-up"></i>
+</button>
