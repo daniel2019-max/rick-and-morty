@@ -1,0 +1,40 @@
+<div *ngIf="character$ |async as character">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-2">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img [src]="character.image"
+                             class="img-fluid rounded-start"
+                             alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {{character.name}}
+                                <span class="badge bg-primary float-end">
+                                    {{character.status}}
+                                </span>
+                            </h5>
+                            <p class="text-dark">
+                                <b> Specie :</b> {{character.species}} <br>
+                                <b> Gender :</b> {{character.gender}} <br>
+                                <b> Type :</b> {{character.gender}} <br>
+                                <b> Episodes :</b> {{character.episode.length}} <br>
+                                <b> Created :</b>
+                                <small class="text-muted">
+                                    {{character.created | date}}
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <app-table [episodesUrl]="character.episode"></app-table>
+        </div>
+    </div>
+</div>

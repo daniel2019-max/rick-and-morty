@@ -6,6 +6,15 @@
         "paths": {
             "@environment": [
                 "src/environments/environment.ts"
+            ],
+            "@shared/*": [
+                "src/app/shared/*"
+            ],
+            "@services/*": [
+                "src/app/services/*"
+            ],
+            "@models/*": [
+                "src/app/models/*"
             ]
         },
         "outDir": "./dist/out-tsc",

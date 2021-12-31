@@ -1,0 +1,15 @@
+.scrollbar {
+    position: relative;
+    /*height: 550px;*/
+    height: calc(100vh - 38vh);
+    overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+}

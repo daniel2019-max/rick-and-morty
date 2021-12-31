@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CharacterInterface} from "../../models/character.interface";
+import {Router} from '@angular/router';
+
+import {CharacterInterface} from "@models/character.interface";
 
 @Component({
     selector: 'app-card',
@@ -19,14 +21,18 @@ export class CardComponent implements OnInit {
         this._character = value;
     }
 
-    constructor() {
+    constructor(private router: Router) {
     }
 
     ngOnInit(): void {
     }
 
     showCharacter() {
-        alert(this.character.name)
+        this.router.navigate(['/character-details'], {
+            queryParams: {
+                id: this.character.id
+            }
+        })
     }
 
 }

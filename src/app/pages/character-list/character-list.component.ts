@@ -1,9 +1,9 @@
 import {DOCUMENT} from '@angular/common';
 import {Component, HostListener, Inject, OnInit} from '@angular/core';
 
-import {CharactersService} from "../../services/characters.service";
-import {CharacterInterface} from "../../models/character.interface";
-import {InfoInterface} from "../../models/resultRequest.interface";
+import {CharactersService} from "@services/characters.service";
+import {CharacterInterface} from "@models/character.interface";
+import {InfoInterface} from "@models/resultRequest.interface";
 
 @Component({
     selector: 'app-character-list',
@@ -13,10 +13,10 @@ import {InfoInterface} from "../../models/resultRequest.interface";
 export class CharacterListComponent implements OnInit {
     characters: CharacterInterface[] = []
     infoApiResult: InfoInterface
-    showButton: boolean = false
     private scrollHeight: number = 500
     private nameSearch: string = ''
     private pageNum: number = 1
+    showButton: boolean = false
 
     constructor(@Inject(DOCUMENT) private document: Document,
                 private charactersService: CharactersService) {
@@ -70,14 +70,13 @@ export class CharacterListComponent implements OnInit {
         if (this.infoApiResult.next) {
             this.pageNum++;
             this.getCharactersFilter()
-            console.log('daniel onScrollDow ')
         }
     }
 
     onScrollTop() {
-        /* browser safari*/
+        /** browser safari*/
         this.document.body.scrollTop = 0
-        /* other browsers*/
+        /** other browsers*/
         this.document.documentElement.scrollTop = 0
     }
 }

@@ -1,0 +1,30 @@
+<div class="row mt-2">
+    <div class="col-md-12">
+        <h4 class="text-center text-primary"> List of episodes</h4>
+        <div class="table-wrapper-scroll-y scrollbar">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                <tr>
+                    <th class="text-center">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Air date</th>
+                    <th scope="col">Episode</th>
+                    <th scope="col" class="text-center">Characters</th>
+                    <th scope="col">Created</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let episodeData of episodes;let indexOfEpisodeUrl=index">
+                    <td class="text-center">{{indexOfEpisodeUrl + 1}}</td>
+                    <td>{{episodeData.name}} </td>
+                    <td>{{episodeData.air_date}} </td>
+                    <td>{{episodeData.episode}} </td>
+                    <td class="text-center">{{episodeData.characters.length}} </td>
+                    <td>{{episodeData.created |date }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
